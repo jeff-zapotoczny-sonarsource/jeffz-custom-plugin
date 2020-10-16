@@ -3,12 +3,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.sonarsource.plugins.example</groupId>
-  <artifactId>sonar-example-plugin</artifactId>
+  <artifactId>jeffz-custom-plugin</artifactId>
   <packaging>sonar-plugin</packaging>
-  <version>8.1.0</version>
+  <version>1.0.0</version>
 
-  <name>Example Plugin for SonarQube 8.x</name>
-  <description>Example of Plugin for SonarQube: Foo Language, FooLint, Custom Metrics and MeasureComputers</description>
+  <name>Jeff's Amazing Plugin</name>
+  <description>Custom Stuff!</description>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -55,8 +55,8 @@
         <version>1.18.0.372</version>
         <extensions>true</extensions>
         <configuration>
-          <pluginKey>example</pluginKey>
-          <pluginClass>org.sonarsource.plugins.example.ExamplePlugin</pluginClass>
+          <pluginKey>jeff</pluginKey>
+          <pluginClass>org.sonarsource.plugins.example.JeffPlugin</pluginClass>
         </configuration>
       </plugin>
       <plugin>

@@ -32,8 +32,8 @@ export function findQualityQatesStatistics(project) {
   });
 }
 
-export function findIssuesStatistics(project) {
-  return getJSON("/api/issues/search").then(function(response) {
+export function findIssuesForProject(project) {
+  return getJSON("/api/issues/search?componentKeys=" + project.key).then(function(response) {
     return response.total;
   });
 }

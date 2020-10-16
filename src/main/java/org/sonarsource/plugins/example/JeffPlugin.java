@@ -17,30 +17,21 @@
  * along with this program; if not, write to the Free Software Foundation,
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
-package org.sonarsource.plugins.example.languages;
+package org.sonarsource.plugins.example;
 
-import org.sonar.api.server.profile.BuiltInQualityProfilesDefinition;
-
-import static org.sonarsource.plugins.example.rules.FooLintRulesDefinition.REPO_KEY;
+import org.sonar.api.Plugin;
+import org.sonarsource.plugins.example.web.MyPluginPageDefinition;
 
 /**
- * Default, BuiltIn Quality Profile for the projects having files of the language "foo"
+ * This class is the entry point for all extensions. It is referenced in pom.xml.
  */
-public final class FooQualityProfile implements BuiltInQualityProfilesDefinition {
+public class JeffPlugin implements Plugin {
 
   @Override
   public void define(Context context) {
-    NewBuiltInQualityProfile profile = context.createBuiltInQualityProfile("FooLint Rules", FooLanguage.KEY);
-    profile.setDefault(true);
 
-    NewBuiltInActiveRule rule1 = profile.activateRule(REPO_KEY, "ExampleRule1");
-    rule1.overrideSeverity("BLOCKER");
-    NewBuiltInActiveRule rule2 = profile.activateRule(REPO_KEY, "ExampleRule2");
-    rule2.overrideSeverity("MAJOR");
-    NewBuiltInActiveRule rule3 = profile.activateRule(REPO_KEY, "ExampleRule3");
-    rule3.overrideSeverity("CRITICAL");
+    // web extension
+    context.addExtension(MyPluginPageDefinition.class);
 
-    profile.done();
   }
-
 }
